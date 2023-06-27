@@ -1,6 +1,6 @@
 class pyTPS:
     
-    def __init__(self,performingDo,performingUndo,mostRecentTransaction,transactions):
+    def __init__(self):
         self.performingDo = False
         self.performingUndo = False
         self.mostRecentTransaction = -1
