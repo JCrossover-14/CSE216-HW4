@@ -31,7 +31,22 @@ def initAllAirports():
     #still left to be implemented
 
 def displayAirports():
-    print("need to display airports")
+    print("")
+    print("AIRPORTS YOU CAN TRAVEL TO AND FROM:\n")
+    s = ""
+    codes = []
+    airportGraph.getKeys(codes)
+    for i in range (len(codes)):
+        if i%10 == 0:
+            s+="\t"
+        s+=codes[i]
+        if i<len(codes)-1:
+            s+=", "
+        if i%10==9:
+            s+="\n"
+    print(s+"\n")
+
+
 
 def displayMenu():
     print("ENTER A SELECTION")
