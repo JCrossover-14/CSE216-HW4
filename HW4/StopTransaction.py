@@ -1,8 +1,9 @@
 import pyTPS
 import WeightedGraph
 import WeightedEdge
+import pyTPS_Transaction
 
-class StopTransaction:
+class StopTransaction(pyTPS_Transaction):
     def __init__(self,stops,graph,stop,distances):
         self.stops = stops
         self.stop = stop
@@ -29,4 +30,4 @@ class StopTransaction:
             str+=stop
         return str
     
-    
+
