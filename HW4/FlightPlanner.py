@@ -19,6 +19,15 @@ def initAllAirports():
     for airport in airport_data:
         port = Airport(airport["Airport"],airport["LatDegrees"],airport["LatMinutes"],airport["LongDegrees"],airport["LongMinutes"])
         airportGraph.addNode(port.getCode(),port)
+
+    edge_data = json.load(open('Edges.json'))
+    for edge in edge_data:
+        a1 = airportGraph.getNodeData(edge["node1"])
+        a2 = airportGraph.getNodeData(edge["node2"])
+        distance = a1.calculateDistance(a1,a2)
+        airportGraph.addEdge(a1.getCode(),a2.getCode(),distance)
+        airportGraph.addEdge(a2.getCode(),a1.getCode(),distance)
+
     #still left to be implemented
 
 def displayAirports():
@@ -49,11 +58,11 @@ def displayCurrentTrip():
         airportGraph.findPath(path,stops[i-1],stops[i])
         s+="\n"
         s+=path[0]
-        for x in range(1,len[path]):
+        for x in range(1,len(path)):
             s= s+"-"+path[x]
             distance +=airportGraph.getNodeData(path[x-1]).calculateDistance(airportGraph.getNodeData(path[x-1]),airportGraph.getNodeData(path[x]))
         print(s)
-        print(" ("+distance+" Miles)\n")
+        print(" ("+str(distance)+" Miles)\n")
         total+=distance
     print("\nTotal Trip Distance: " +str(total)+ " Miles\n")
     
