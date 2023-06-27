@@ -22,7 +22,7 @@ class pyTPS:
             self.performingDo = False
     
     def undoTransaction(self):
-        if self.hasTransactionToUndo:
+        if self.hasTransactionToUndo():
             transaction = self.transactions[self.mostRecentTransaction]
             transaction.undoTransaction()
             self.mostRecentTransaction-=1
@@ -33,10 +33,11 @@ class pyTPS:
             return True
         return False
     
-    def hasTransactionToRedo(self):
-        if(self.mostRecentTransaction+1<len(self.transactions)):
+    def hasTransactionToUndo(self):
+        if self.mostRecentTransaction>=0:
             return True
         return False
+    
     
     def clearAllTransactions(self):
         self.transactions.clear()
