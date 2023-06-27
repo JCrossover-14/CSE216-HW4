@@ -1,7 +1,7 @@
 from WeightedEdge import WeightedEdge
 import heapq
 class WeightedGraph:
-    def __init__(self,nodes,edges):
+    def __init__(self):
         self.nodes={}
         self.edges={}
 
