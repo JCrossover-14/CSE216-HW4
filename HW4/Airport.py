@@ -24,7 +24,7 @@ class Airport:
     def getLongitudeDegrees(self):
         return self.longitudeDegrees
     
-    def calculateDistance (a1,a2):
+    def calculateDistance (self,a1,a2):
         PI_F=3.14159265358979
         RADIAN_FACTOR= 180.0/PI_F
         EARTH_RADIUS=3963.0
@@ -33,7 +33,7 @@ class Airport:
         lat1 = lat1/RADIAN_FACTOR
         long1 = -(a1.getLongitudeDegrees()+a1.getLongitudeMinutes()/60.0)
         long1 = long1/RADIAN_FACTOR
-        lat2 = a2.getLatitudeDegrees()+a2.getLatitudeMintues()/60.0
+        lat2 = a2.getLatitudeDegrees()+a2.getLatitudeMinutes()/60.0
         lat2 = lat2/RADIAN_FACTOR 
         long2 = -(a2.getLongitudeDegrees()+a2.getLongitudeMinutes()/60.0)
         long2 = long2/RADIAN_FACTOR
