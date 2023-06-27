@@ -7,8 +7,8 @@ class Stop_Transaction(pyTPS_Transaction):
     def __init__(self,stops,graph,stop,distances):
         super().__init__()
         self.stops = stops
-        self.stop = stop
         self.graph = graph
+        self.stop = stop
         self.distances = distances
 
     def doTransaction(self):
@@ -19,7 +19,7 @@ class Stop_Transaction(pyTPS_Transaction):
             lastAirport = self.graph.getNodeData(last)
             secLastAirport = self.graph.getNodeData(seclast)
             distance = lastAirport.calculateDistance(lastAirport,secLastAirport)
-            self.distances.push(distance)
+            self.distances.append(distance)
     
     def undoTransaction(self):
         self.stops.pop()
