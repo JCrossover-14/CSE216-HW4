@@ -42,7 +42,7 @@ class pyTPS:
         self.transactions.clear()
         self.mostRecentTransaction=-1
 
-    def toSring(self):
+    def toString(self):
         result = "--Number of Transactions: "+str(len(self.transactions))+"\n"
         result+=("--Current Index on Stack: "+str(self.mostRecentTransaction)+"\n")
         result+="--Current Transaction Stack:\n"
