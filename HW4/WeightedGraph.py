@@ -63,7 +63,6 @@ class WeightedGraph:
 
         while len(pq)>0:
             dist,current = heapq.heappop(pq)
-            unvisited.remove(current)
 
             for neighborId in self.nodes:
                 if self.hasNeighbor(current,neighborId):
@@ -73,15 +72,15 @@ class WeightedGraph:
                         previous[neighborId]=current
                         heapq.heappush(pq,(dist+weight,neighborId))
             
-            if distances[node2] == float('inf'):
-                return
+        if distances[node2] == float('inf'):
+            return
             
-            cur = node2
-            while cur !=node1:
-                path.insert(0,cur)
-                cur = previous[cur]
+        cur = node2
+        while cur !=node1:
+            path.insert(0,cur)
+            cur = previous[cur]
             
-            path.insert(0,node1)
+        path.insert(0,node1)
 
 
     
