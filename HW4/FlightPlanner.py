@@ -67,11 +67,10 @@ def displayCurrentTrip():
     path = []
     total = 0.0
     for i in range(1,len(stops)):
-        s = ""
+        s = str(i)+"). "
         distance = 0.0
         path = []
         airportGraph.findPath(path,stops[i-1],stops[i])
-        s+="\n"
         s+=path[0]
         for x in range(1,len(path)):
             s= s+"-"+path[x]
@@ -89,11 +88,10 @@ initAllAirports()
 keepGoing = True
 while(keepGoing):
     displayAirports()
-    displayCurrentTrip()
     displayMenu()
     entry = input("- ")
     if entry == "S":
-        airport = input("")
+        airport = input("Enter your destination: ")
         stop = Stop_Transaction(stops,airportGraph,airport,distances)
         tps.addTransaction(stop)
     elif entry == "U":
@@ -105,6 +103,7 @@ while(keepGoing):
         tps.clearAllTransactions()
     elif entry=="Q":
         keepGoing = False
+    displayCurrentTrip()
 print("GOOD BYE!! :((")
 
 
